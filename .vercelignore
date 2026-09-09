@@ -1,0 +1,9 @@
+# Word / Office 產生的殘留檔案
+*.docx
+*.doc
+~$*
+*.files/
+
+# 開發用暫存
+.DS_Store
+Thumbs.db
