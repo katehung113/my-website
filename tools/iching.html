@@ -345,15 +345,14 @@ function render(r, l, basisName){
   const who = $('name').value.trim();
   $('rTitle').textContent = who ? who+' 的本命卦' : '本命卦';
   const lunarStr = tw(l.toString());
-  const monthLabel = (l.getMonth()<0?'閏':'') + Math.abs(l.getMonth());
   $('gua').innerHTML =
     '<p class="pal">'+r.pal.n+'宮 · '+r.ps.kind+' · 屬'+r.pal.wx+'</p>'
     + '<p class="name">'+r.name+(r.bian ? ' <span style="color:var(--mute);font-weight:500">→</span> '+r.bian.name : '')+'</p>'
     + (r.bian ? '<p class="pal" style="margin:-6px 0 10px">變卦 '+r.bian.name+'：'+r.bian.pal.n+'宮'+r.bian.kind+'</p>' : '')
     + '<dl class="calc">'
     + '<dt>農曆</dt><dd>'+lunarStr+'</dd>'
-    + '<dt>下卦</dt><dd>月 '+monthLabel+' ÷ 8 餘 '+(r.m%8)+(r.m%8?'':'（作 8）')+' → '+TRI[r.low].n+'（'+TRI[r.low].x+'）</dd>'
-    + '<dt>上卦</dt><dd>日 '+r.d+' ÷ 8 餘 '+(r.d%8)+(r.d%8?'':'（作 8）')+' → '+TRI[r.up].n+'（'+TRI[r.up].x+'）</dd>'
+    + '<dt>上卦</dt><dd>'+TRI[r.up].n+'（'+TRI[r.up].x+'）</dd>'
+    + '<dt>下卦</dt><dd>'+TRI[r.low].n+'（'+TRI[r.low].x+'）</dd>'
     + '<dt>動爻</dt><dd>'+(r.dong ? ZHI[r.hrIdx]+'時 → '+['初','二','三','四','五','上'][r.dong-1]+'爻動' : '時辰未知，不取動爻')+'</dd>'
     + '</dl>'
     + '<p class="time">以'+basisName+'為日辰：月建 <b>'+r.monthGz+'</b>　日辰 <b>'+r.dayGz+'</b>　旬空 <b>'+r.xk.split('').join('、')+'</b></p>';
