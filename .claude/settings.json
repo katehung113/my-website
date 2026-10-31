@@ -1,0 +1,113 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\USER\\.claude\\statusline.ps1\"",
+    "refreshInterval": 60
+  },
+  "autoUpdatesChannel": "latest",
+  "theme": "dark",
+  "agentPushNotifEnabled": true,
+  "inputNeededNotifEnabled": true,
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Bash(ls:*)",
+      "Bash(cd:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(jq:*)",
+      "Bash(git status)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch)",
+      "Bash(git ls-remote:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [
+      "Bash(rm)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(del *)",
+      "Bash(erase *)",
+      "Bash(rd *)",
+      "Bash(Remove-Item *)",
+      "PowerShell(Remove-Item *)",
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(rm -r *)",
+      "Bash(rm -R *)",
+      "Bash(rm -f *)",
+      "Bash(sudo *)",
+      "Bash(dd *)",
+      "Bash(mkfs*)",
+      "Bash(diskutil erase*)",
+      "Bash(diskutil partitionDisk*)",
+      "Bash(diskutil deleteVolume*)",
+      "Bash(chmod 777 *)",
+      "Bash(chmod -R 777 *)",
+      "Bash(git reset --hard*)",
+      "Bash(git reset *--hard*)",
+      "Bash(git push --force*)",
+      "Bash(git push *--force*)",
+      "Bash(git push -f *)",
+      "Bash(git push * -f*)",
+      "Bash(git push --force-with-lease*)",
+      "Bash(git push *--force-with-lease*)",
+      "Bash(git clean -f*)",
+      "Bash(git clean *-f*)",
+      "Bash(git branch -D*)",
+      "Bash(git branch *-D*)",
+      "Bash(shutdown*)",
+      "Bash(reboot*)",
+      "Bash(: >*)",
+      "Bash(truncate *)",
+      "PowerShell(Remove-Item -Recurse *)",
+      "PowerShell(Remove-Item *-Recurse*)",
+      "PowerShell(Remove-Item -Force *)",
+      "PowerShell(Remove-Item *-Force*)",
+      "PowerShell(rm -Recurse *)",
+      "PowerShell(rm *-Recurse*)",
+      "PowerShell(Format-Volume *)",
+      "PowerShell(Clear-Disk *)",
+      "PowerShell(Remove-Partition *)",
+      "PowerShell(Stop-Computer *)",
+      "PowerShell(Restart-Computer *)",
+      "PowerShell(diskpart *)",
+      "PowerShell(format *)",
+      "PowerShell(cmd /c rd *)",
+      "PowerShell(cmd /c del *)",
+      "PowerShell(git reset --hard*)",
+      "PowerShell(git reset *--hard*)",
+      "PowerShell(git push --force*)",
+      "PowerShell(git push *--force*)",
+      "PowerShell(git push -f *)",
+      "PowerShell(git push * -f*)",
+      "PowerShell(git push --force-with-lease*)",
+      "PowerShell(git push *--force-with-lease*)",
+      "PowerShell(git clean -f*)",
+      "PowerShell(git clean *-f*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash C:/Users/USER/.claude/hooks/pro-kit-block-dangerous-commands.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
