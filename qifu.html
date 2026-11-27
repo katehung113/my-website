@@ -4,291 +4,270 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KK命理｜祈福儀式報名</title>
-<meta name="description" content="KK命理 祈福儀式線上報名：選擇祈福項目、填寫資料、匯款後一鍵傳送 LINE 訂單。">
+<meta name="description" content="KK命理 祈福儀式線上報名：選擇祈福方向與方案、可加入家人一起祈福，送出後由官方 LINE 確認並提供匯款資訊。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   設定區：之後改價格、項目、帳號，只要改最下面 <script> 裡的 CONFIG
-   ============================================================ */
 :root{
-  --ink:#4a3423;      /* 主色：深咖啡（對齊 KK命理 圖卡） */
-  --ink-2:#6b5038;
-  --gold:#a8783f;     /* 點綴：古銅金 */
-  --gold-soft:#ecdcc0;
-  --bg:#f5efe4;       /* 底色：宣紙米 */
-  --card:#ffffff;
-  --line:#e6e0d4;
-  --muted:#7a7468;
-  --ok:#2f6b4f;
-  --warn:#a5473a;
+  --ink:#4a3423; --ink-2:#6b5038; --gold:#a8783f; --gold-soft:#ecdcc0;
+  --bg:#f5efe4; --card:#fff; --line:#e6dccb; --muted:#7a6e60; --warn:#a5473a; --ok:#2f6b4f;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{
-  font-family:"Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
-  background:var(--bg);color:var(--ink);line-height:1.7;
-  padding-bottom:calc(120px + env(safe-area-inset-bottom));
-}
-.serif{font-family:"Noto Serif TC","Songti TC",serif}
-.wrap{max-width:560px;margin:0 auto;padding:28px 18px}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+body{font-family:"Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.serif,h1,h2,h3{font-family:"Noto Serif TC","Songti TC",serif}
+a{color:var(--gold)}
+.wrap{max-width:600px;margin:0 auto;padding:24px 16px}
+.hidden{display:none!important}
 
-/* Hero */
-.hero{text-align:center;padding:12px 0 8px}
-.tag{display:inline-block;border:1.5px solid var(--gold);color:var(--gold);
-  border-radius:999px;padding:4px 18px;font-size:14px;letter-spacing:.15em}
-.brand{margin-top:14px;color:var(--gold);font-size:15px;letter-spacing:.3em}
-h1{font-size:40px;font-weight:900;letter-spacing:.06em;margin:6px 0 4px;line-height:1.25}
-h1 small{display:block;font-size:17px;font-weight:500;color:var(--ink-2);letter-spacing:.2em;margin-top:6px}
-.rule{width:120px;height:1px;background:var(--gold);margin:18px auto}
+/* hero */
+.hero{text-align:center;padding:10px 0 4px}
+.tag{display:inline-block;border:1.5px solid var(--gold);color:var(--gold);border-radius:999px;padding:3px 16px;font-size:13px;letter-spacing:.15em}
+.brand{margin-top:12px;color:var(--gold);font-size:14px;letter-spacing:.3em}
+h1{font-size:36px;font-weight:900;letter-spacing:.06em;margin:4px 0;line-height:1.25}
+h1 small{display:block;font-size:16px;font-weight:500;color:var(--ink-2);letter-spacing:.25em;margin-top:6px}
+.rule{width:110px;height:1px;background:var(--gold);margin:16px auto}
 .lead{color:var(--muted);font-size:15px}
+.price-tag{display:inline-block;margin-top:12px;background:var(--ink);color:#fff;border-radius:999px;padding:5px 16px;font-size:14px}
+.price-tag b{color:var(--gold-soft);font-size:17px}
+.steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 4px;list-style:none}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px}
+.steps b{color:var(--gold);margin-right:4px;font-family:"Noto Serif TC",serif}
 
-/* Steps */
-.steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0 6px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:999px;
-  padding:6px 14px;font-size:14px}
-.step b{color:var(--gold);margin-right:4px;font-family:"Noto Serif TC",serif}
+/* card */
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 16px;margin-top:18px;box-shadow:0 6px 24px rgba(74,52,35,.06)}
+.card>h2{font-size:21px;display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--gold-soft);margin-bottom:14px}
+.n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:14px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-family:"Noto Sans TC",sans-serif}
+.small{font-size:13px;color:var(--muted)}
+.note{background:#f3ecdf;border-left:3px solid var(--gold);border-radius:8px;padding:11px 13px;font-size:14px;color:var(--ink-2);margin-bottom:14px}
 
-/* Card */
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:22px 18px;margin-top:20px;box-shadow:0 6px 24px rgba(74,52,35,.06)}
-.card h2{font-size:22px;font-weight:700;display:flex;align-items:baseline;gap:10px;
-  padding-bottom:10px;border-bottom:1px solid var(--gold-soft);margin-bottom:16px}
-.card h2 .no{color:var(--gold);font-size:15px;letter-spacing:.1em}
-.card h2 .hint{margin-left:auto;font-family:"Noto Sans TC",sans-serif;font-size:13px;font-weight:400;color:var(--muted)}
+/* items & tiers */
+.item{border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.item.on{border-color:var(--gold);background:#fffcf6}
+.item-head{display:flex;align-items:center;gap:10px;padding:12px 12px 4px}
+.item-icon{width:36px;height:36px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.item-title{font-weight:700;font-size:16px}
+.item-pick{margin-left:auto;font-size:13px;color:var(--gold);font-weight:700;white-space:nowrap}
+.item-desc{font-size:13px;color:var(--muted);padding:0 12px 8px 58px}
+.tiers{padding:0 12px 12px;display:grid;gap:6px}
+.tier{position:relative;display:block;cursor:pointer}
+.tier input{position:absolute;opacity:0;pointer-events:none}
+.tb{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff}
+.tb .tn{font-weight:700;font-size:14px;white-space:nowrap}
+.tb .td{font-size:13px;color:var(--muted);flex:1}
+.tb .tp{font-weight:700;color:var(--gold);font-size:14px;white-space:nowrap}
+.tier input:checked + .tb{background:var(--ink);border-color:var(--ink)}
+.tier input:checked + .tb .tn,.tier input:checked + .tb .tp{color:#fff}
+.tier input:checked + .tb .td{color:var(--gold-soft)}
+.tier input:focus-visible + .tb{outline:2px solid var(--gold);outline-offset:2px}
+.tier.none .tb{padding:6px 11px}
+.tier.none .tn{font-weight:500;color:var(--muted)}
+.tier.none input:checked + .tb{background:#f3ecdf;border-color:var(--line)}
+.tier.none input:checked + .tb .tn{color:var(--muted)}
 
-/* Note box */
-.note{background:#f3efe6;border-left:3px solid var(--gold);border-radius:8px;
-  padding:12px 14px;font-size:14px;color:var(--ink-2);margin-bottom:16px}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;background:#fff}
+.chip input:checked + span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
 
-/* Items */
-.item{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;transition:border-color .2s, background .2s}
-.item.active{border-color:var(--gold);background:#fffcf6}
-.item-head{display:flex;align-items:center;gap:10px}
-.item-icon{width:38px;height:38px;border-radius:50%;background:var(--gold-soft);
-  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.item-title{font-weight:700;font-size:17px}
-.item-desc{font-size:13px;color:var(--muted);margin:6px 0 10px}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;pointer-events:none}
-.opt label{display:block;border:1px solid var(--line);border-radius:10px;padding:7px 12px;
-  font-size:14px;cursor:pointer;background:#fff;user-select:none}
-.opt label em{font-style:normal;color:var(--gold);font-weight:700;margin-left:4px}
-.opt input:checked + label{background:var(--ink);color:#fff;border-color:var(--ink)}
-.opt input:checked + label em{color:var(--gold-soft)}
-.opt input:focus-visible + label{outline:2px solid var(--gold);outline-offset:2px}
-.clear{font-size:13px;color:var(--muted);background:none;border:none;text-decoration:underline;
-  cursor:pointer;margin-left:auto;display:none}
-.item.active .clear{display:inline}
+/* form */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+@media (max-width:420px){.grid2{grid-template-columns:1fr}}
+.f{display:block;margin-bottom:12px;font-size:14px;font-weight:500}
+.f .req{color:var(--warn)}
+.f .opt{color:var(--muted);font-weight:400;font-size:12px}
+.f .count{float:right;font-weight:400;font-size:12px;color:var(--muted)}
+.f input,.f select,.f textarea{display:block;width:100%;margin-top:5px;font:inherit;font-size:16px;font-weight:400;color:var(--ink);
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;outline:none}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--gold)}
+.f textarea{min-height:70px;resize:vertical}
+.f.bad input,.f.bad select,.f.bad textarea{border-color:var(--warn)}
+.person{border-top:1px dashed var(--line);padding-top:16px;margin-top:16px}
+.person.main{border-top:0;padding-top:0;margin-top:0}
+.person-head{display:flex;align-items:center;margin-bottom:10px}
+.person-head h3{font-size:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:12px;background:var(--ink);color:#fff;
+  font:inherit;font-weight:700;font-size:16px;padding:13px 18px;cursor:pointer;text-decoration:none;letter-spacing:.05em}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.sm{font-size:13px;padding:5px 12px;border-radius:999px;font-weight:500}
+.btn.line{background:#06c755}
+.btn.block{width:100%}
+.person-head .btn{margin-left:auto}
 
-/* Form */
-.field{margin-bottom:14px}
-.field label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
-.field label .req{color:var(--warn);margin-left:2px}
-.field label .opt-tag{color:var(--muted);font-weight:400;font-size:12px;margin-left:4px}
-.field input,.field select,.field textarea{
-  width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;
-  border:1px solid var(--line);border-radius:10px;padding:10px 12px;outline:none}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
-.field textarea{min-height:84px;resize:vertical}
-.row{display:flex;gap:10px}.row .field{flex:1}
-.field .err{display:none;color:var(--warn);font-size:13px;margin-top:4px}
-.field.invalid input,.field.invalid select{border-color:var(--warn)}
-.field.invalid .err{display:block}
+ul.tidy{padding-left:1.2em;font-size:14px;color:var(--ink-2)}
+ul.tidy li{margin:3px 0}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-2);margin-top:12px}
+.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--ink);flex-shrink:0}
 
-/* Bank */
-.bank{border:1px dashed var(--gold);border-radius:12px;padding:14px;margin-bottom:16px;font-size:15px}
-.bank-row{display:flex;justify-content:space-between;padding:3px 0}
-.bank-row span:first-child{color:var(--muted)}
-.copy{font-size:13px;border:1px solid var(--gold);color:var(--gold);background:#fff;
-  border-radius:999px;padding:2px 10px;margin-left:8px;cursor:pointer}
+/* summary */
+.sum{list-style:none;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px}
+.sum li{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line)}
+.sum li:last-child{border-bottom:0}
+.sum li.disc span:last-child{color:var(--ok)}
+.sum li.total{background:#f3ecdf;font-weight:700;font-size:16px}
+.giftnow{margin-top:10px;font-size:14px;color:var(--ok);font-weight:500}
+.giftnext{margin-top:10px;font-size:14px;color:var(--ink-2)}
+.giftnext b{color:var(--gold)}
+.err{margin-top:12px;background:#fbeeec;color:var(--warn);border-radius:10px;padding:10px 12px;font-size:14px}
+pre.order{white-space:pre-wrap;word-break:break-word;background:#faf6ef;border:1px solid var(--line);border-radius:12px;padding:12px;font-family:inherit;font-size:13px;margin:12px 0;max-height:320px;overflow:auto}
+.warn-box{margin-top:14px;border:1px solid #e8c9c3;background:#fdf5f3;border-radius:12px;padding:11px 13px;font-size:13px;color:#7d3a2f}
+.actions{display:grid;gap:10px}
 
-.check{display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--ink-2);margin:6px 0 4px}
-.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--ink)}
-
-/* FAQ */
-details{border-bottom:1px solid var(--line);padding:12px 0}
-details:last-child{border-bottom:none}
-summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between}
+/* faq */
+details{border-bottom:1px solid var(--line);padding:11px 0}
+details:last-child{border-bottom:0}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
 summary::after{content:"＋";color:var(--gold)}
 details[open] summary::after{content:"－"}
-details p{font-size:14px;color:var(--muted);margin-top:8px}
+details p{font-size:14px;color:var(--muted);margin-top:6px}
 
-/* Bottom bar */
-.bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);
-  border-top:1px solid var(--line);backdrop-filter:blur(8px);
-  padding:12px 18px calc(12px + env(safe-area-inset-bottom));z-index:10}
-.bar-inner{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px}
-.total{font-family:"Noto Serif TC",serif;font-size:30px;font-weight:900;line-height:1.1}
-.total-sub{font-size:13px;color:var(--muted)}
-.gift{margin-left:auto;text-align:right;font-size:13px;color:var(--ink-2);max-width:55%}
-.gift b{color:var(--gold)}
-.gift.got{color:var(--ok)}
-.progress{height:3px;background:var(--gold-soft);border-radius:3px;margin-top:6px;overflow:hidden}
-.progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
-
-.submit{display:block;width:100%;margin-top:18px;background:var(--ink);color:#fff;border:none;
-  border-radius:14px;padding:16px;font:inherit;font-size:17px;font-weight:700;letter-spacing:.1em;cursor:pointer}
-.submit:disabled{opacity:.4;cursor:not-allowed}
-.submit-note{font-size:13px;color:var(--muted);text-align:center;margin-top:8px}
-
-.toast{position:fixed;left:50%;top:20px;transform:translateX(-50%) translateY(-120%);
-  background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;
-  transition:transform .3s;z-index:20;max-width:90%;text-align:center}
-.toast.show{transform:translateX(-50%) translateY(0)}
-
-footer{text-align:center;font-size:12px;color:var(--muted);margin-top:28px}
-footer a{color:var(--muted)}
+/* bar */
+.bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);border-top:1px solid var(--line);
+  backdrop-filter:blur(8px);padding:10px 16px calc(10px + env(safe-area-inset-bottom));z-index:10}
+.bar-in{max-width:600px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.bar-total{font-family:"Noto Serif TC",serif;font-size:26px;font-weight:900;line-height:1.1}
+.bar-sub{font-size:12px;color:var(--muted)}
+.bar-gift{margin-left:auto;text-align:right;font-size:12px;color:var(--ink-2);max-width:56%}
+.bar-gift b{color:var(--gold)}
+.bar-gift.got{color:var(--ok)}
+.toast{position:fixed;left:50%;top:16px;transform:translateX(-50%) translateY(-140%);background:var(--ink);color:#fff;padding:9px 18px;border-radius:999px;font-size:14px;transition:transform .3s,visibility .3s;z-index:20;max-width:90%;text-align:center;visibility:hidden}
+.toast.show{transform:translateX(-50%) translateY(0);visibility:visible}
+footer{text-align:center;font-size:12px;color:var(--muted);margin-top:26px}
+footer .menu{display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:center;margin-bottom:8px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="hero">
-    <span class="tag" id="igTag">@kk413413</span>
-    <div class="brand serif">KK命理・天機在手・人生有光</div>
-    <h1 class="serif">祈福儀式報名<small>祈願・祝福・迴向</small></h1>
-    <div class="rule"></div>
-    <p class="lead">選好祈福方向與日期，下方會自動算出金額。<br>按送出就會帶進官方 LINE，KK 確認後回覆匯款資訊。</p>
-    <div class="steps">
-      <span class="step"><b>1</b>選方向與日期</span>
-      <span class="step"><b>2</b>填資料</span>
-      <span class="step"><b>3</b>LINE 送出報名</span>
-      <span class="step"><b>4</b>KK 回覆匯款資訊</span>
-      <span class="step"><b>5</b><span id="deliverText">收到儀式照片與影片</span></span>
-    </div>
-  </header>
+<header class="hero">
+  <span class="tag">KK命理・@kk413413</span>
+  <div class="brand serif">天機在手・人生有光</div>
+  <h1>祈福儀式報名<small>祈願・祝福・迴向</small></h1>
+  <div class="rule"></div>
+  <p class="lead">選好祈福方向與方案、填寫資料，送出後透過官方 LINE 傳給 KK。<br>儀式全程拍照錄影，完成後傳給你留存。</p>
+  <span class="price-tag">每項 <b id="fromPrice">NT$2,700</b> 起・可加入家人</span>
+  <ol class="steps">
+    <li><b>1</b>選方向與方案</li><li><b>2</b>填寫資料</li><li><b>3</b>LINE 送出報名</li>
+    <li><b>4</b>KK 回覆匯款資訊</li><li><b>5</b>收到儀式照片與影片</li>
+  </ol>
+</header>
 
-  <!-- 1. 祈福項目 -->
-  <section class="card">
-    <h2 class="serif"><span class="no">01</span>選擇祈福方向<span class="hint">可多項一起報名</span></h2>
-    <div class="note">
-      <b>流程很簡單：</b>①填寫祈福紙（個人資料與心願）→ ②儀式進行，全程拍照錄影傳給你 → ③將祈福紙與香、材料一同燒化，呈獻神明。
-      祈福是幫你<b>安定心念、補足能量</b>，路還是要自己走，KK 陪你一起。
-    </div>
-    <div id="items"></div>
-    <div class="field" style="margin-top:6px">
-      <label>祈福日期<span class="opt-tag">12 月場次</span></label>
-      <select id="session"></select>
-    </div>
-  </section>
+<form id="f" novalidate>
 
-  <!-- 2. 資料 -->
-  <section class="card">
-    <h2 class="serif"><span class="no">02</span>填寫祈福資料<span class="hint">寫在祈福紙上</span></h2>
-    <form id="form" novalidate>
-      <div class="field" data-k="name">
-        <label>祈福人姓名<span class="req">*</span></label>
-        <input id="name" autocomplete="name" placeholder="請填本名">
-        <div class="err">請填寫姓名</div>
-      </div>
-      <div class="row">
-        <div class="field" data-k="birthday">
-          <label>國曆生日<span class="req">*</span></label>
-          <input id="birthday" type="date">
-          <div class="err">請填寫生日</div>
-        </div>
-        <div class="field">
-          <label>出生時辰<span class="opt-tag">不確定可不填</span></label>
-          <select id="hour">
-            <option value="">不確定</option>
-            <option>子時 23-01</option><option>丑時 01-03</option><option>寅時 03-05</option>
-            <option>卯時 05-07</option><option>辰時 07-09</option><option>巳時 09-11</option>
-            <option>午時 11-13</option><option>未時 13-15</option><option>申時 15-17</option>
-            <option>酉時 17-19</option><option>戌時 19-21</option><option>亥時 21-23</option>
-          </select>
-        </div>
-      </div>
-      <div class="field" data-k="address">
-        <label>現居地址<span class="req">*</span><span class="opt-tag">寫在祈福紙上，到區／路即可</span></label>
-        <input id="address" autocomplete="street-address" placeholder="例：台中市西屯區○○路">
-        <div class="err">請填寫地址</div>
-      </div>
-      <div class="field">
-        <label>想祈求的事<span class="opt-tag">選填</span></label>
-        <textarea id="wish" placeholder="例：希望今年工作穩定、找到適合的對象……"></textarea>
-      </div>
-      <div class="field">
-        <label>其他祈福對象<span class="opt-tag">選填，例如家人</span></label>
-        <textarea id="others" placeholder="姓名／生日／關係，一行一位"></textarea>
-      </div>
-    </form>
-  </section>
+<!-- 1 -->
+<section class="card">
+  <h2><span class="n">1</span>祈福日期與方向</h2>
+  <label class="f">祈福日期 <span class="req">*</span>
+    <select id="session"></select>
+  </label>
+  <p class="small" style="margin:-4px 0 14px">每個方向選一個方案，可以多項組合。不確定哪一款適合，先在 LINE 問 KK 也可以。</p>
+  <div id="mainItems"></div>
+</section>
 
-  <!-- 3. 送出 -->
-  <section class="card">
-    <h2 class="serif"><span class="no">03</span>用 LINE 送出報名</h2>
-    <div class="note">
-      送出後，KK 會在<b>官方 LINE（@839ibfpz）</b>確認你的報名並提供匯款資訊。<br>
-      為了你的安全：匯款帳號<b>只會由官方 LINE 提供</b>，若有其他帳號私訊你要求匯款，請不要理會。
-    </div>
-    <div class="field" data-k="nick">
-      <label>你的 LINE 暱稱<span class="req">*</span><span class="opt-tag">方便 KK 對應訂單</span></label>
-      <input id="nick" placeholder="LINE 上顯示的名字">
-      <div class="err">請填寫 LINE 暱稱</div>
-    </div>
-    <label class="check"><input type="checkbox" id="agree">我已了解祈福為宗教文化服務，不保證特定結果；匯款後恕不退費，可協助改期。</label>
+<!-- 2 -->
+<section class="card">
+  <h2><span class="n">2</span>優惠與贈品</h2>
+  <div class="chips" id="promo"></div>
+  <p class="small" id="promoNote" style="margin:10px 0 12px">優惠擇一，不能重複使用。</p>
+  <div class="small">滿額贈品（以折扣後金額計算）：</div>
+  <ul class="tidy small" id="giftList"></ul>
+</section>
 
-    <button class="submit" id="submit" disabled>送出・用 LINE 傳給 KK</button>
-    <p class="submit-note" id="submitNote">請先選擇祈福方向</p>
-  </section>
+<!-- 3 -->
+<section class="card">
+  <h2><span class="n">3</span>祈福者資料</h2>
+  <div id="people"></div>
+  <button type="button" class="btn ghost block" id="addP" style="margin:8px 0 20px">＋ 加入家人一起祈福</button>
 
-  <!-- FAQ -->
-  <section class="card">
-    <h2 class="serif"><span class="no">Q&A</span>常見問題</h2>
-    <div id="faq"></div>
-  </section>
-
-  <footer>
-    © KK命理・<a id="lineLink" href="#">官方 LINE</a>・<a id="igLink" href="#">Instagram</a>
-  </footer>
-</div>
-
-<!-- 底部金額列 -->
-<div class="bar">
-  <div class="bar-inner">
-    <div>
-      <div class="total" id="total">$0</div>
-      <div class="total-sub" id="count">尚未選擇項目</div>
-    </div>
-    <div class="gift" id="gift"></div>
+  <h3 style="font-size:16px;margin-bottom:8px">聯絡方式</h3>
+  <div class="grid2">
+    <label class="f">LINE 暱稱 <span class="req">*二擇一</span><input type="text" id="line" autocomplete="off"></label>
+    <label class="f">Instagram 帳號 <span class="req">*二擇一</span><input type="text" id="ig" autocomplete="off" placeholder="馬來西亞、新加坡可填"></label>
   </div>
-  <div class="bar-inner"><div class="progress" style="flex:1"><i id="prog"></i></div></div>
+  <label class="f">從哪裡認識 KK？
+    <select id="src"><option value="">請選擇</option><option>Instagram</option><option>Threads</option><option>朋友介紹</option><option>回購老客人</option><option>其他</option></select>
+  </label>
+</section>
+
+<!-- 4 -->
+<section class="card">
+  <h2><span class="n">4</span>祈福說明</h2>
+  <h3 style="font-size:15px">儀式怎麼進行</h3>
+  <ul class="tidy">
+    <li>填寫祈福紙：寫下你的資料與心願。</li>
+    <li>儀式進行：全程拍照、錄影，完成後透過 LINE 傳給你。</li>
+    <li>燒化祈福：祈福紙與香、材料一同燒化，呈獻神明。</li>
+  </ul>
+  <h3 style="font-size:15px;margin-top:12px">祈福期間</h3>
+  <ul class="tidy" id="tips"></ul>
+  <h3 style="font-size:15px;margin-top:12px">退費與改期</h3>
+  <ul class="tidy"><li>祈福紙書寫完成後即無法退費，可協助改到下一場。</li></ul>
+  <h3 style="font-size:15px;margin-top:12px">隱私</h3>
+  <p class="small">你的資料只用於本次祈福與聯繫，不會提供給第三方。</p>
+  <label class="check"><input type="checkbox" id="agree"><span>我已閱讀以上說明，了解祈福屬於宗教文化服務，是心念與信念的支持，不保證特定結果。</span></label>
+</section>
+
+<!-- 5 -->
+<section class="card">
+  <h2><span class="n">5</span>付款方式與明細</h2>
+  <div class="chips" style="margin-bottom:12px">
+    <label class="chip"><input type="radio" name="pay" value="台灣銀行轉帳" checked><span>台灣銀行轉帳</span></label>
+    <label class="chip"><input type="radio" name="pay" value="海外付款（馬來西亞／新加坡等）"><span>海外付款</span></label>
+  </div>
+  <ul class="sum" id="sum"></ul>
+  <div class="giftnow" id="giftNow"></div>
+  <div class="giftnext" id="giftNext"></div>
+  <div class="err hidden" id="err"></div>
+  <button type="submit" class="btn block" style="margin-top:16px">確認資料，產生訂單</button>
+</section>
+</form>
+
+<!-- 6 -->
+<section class="card hidden" id="after">
+  <h2><span class="n">6</span>傳送訂單給 KK</h2>
+  <p class="small">請確認下方訂單內容，再用 LINE 傳送。KK 收到後會<b>在官方 LINE 回覆匯款資訊</b>；匯款完成後，請回傳匯款戶名與帳號後 5 碼。</p>
+  <pre class="order" id="order"></pre>
+  <div class="actions">
+    <button type="button" class="btn line block" id="sendLine">① 用 LINE 傳送（自動帶入訂單）</button>
+    <button type="button" class="btn ghost block" id="copyOrder">② 複製訂單文字</button>
+  </div>
+  <p class="small" style="margin-top:10px">沒有 LINE？複製訂單後，<a id="igDm" target="_blank" rel="noopener">開啟 Instagram 私訊 @kk413413</a> 貼上傳送。</p>
+  <div class="warn-box">⚠️ 防詐提醒：KK 只會透過<b>官方 LINE（<span id="lineIdTxt"></span>）</b>與 <b>Instagram @kk413413</b> 提供付款資訊，不會用其他帳號要求你轉帳。若有人自稱 KK 要你匯款到其他帳戶，請不要理會。</div>
+</section>
+
+<!-- FAQ -->
+<section class="card">
+  <h2><span class="n">?</span>常見問題</h2>
+  <div id="faq"></div>
+</section>
+
+<footer>
+  <div class="menu"><span>易經占卜</span><span>八字命盤</span><span>流年運勢</span><span>風水規劃</span><span>祈福儀式</span></div>
+  © KK命理・<a id="lineLink">官方 LINE</a>・<a id="igLink">Instagram</a>
+</footer>
 </div>
 
+<div class="bar"><div class="bar-in">
+  <div><div class="bar-total" id="barTotal">NT$0</div><div class="bar-sub" id="barSub">尚未選擇項目</div></div>
+  <div class="bar-gift" id="barGift"></div>
+</div></div>
 <div class="toast" id="toast"></div>
 
 <script>
 /* ============================================================
-   CONFIG：所有可改的內容都在這裡
+   CONFIG：可修改的內容都在這裡
    ============================================================ */
 const CONFIG = {
-  // 官方 LINE 的「基本 ID」（含 @，在 LINE 官方帳號後台首頁可看到）
-  // 填了之後，訂單會自動帶進聊天框；沒填會改成「複製訂單＋開啟 LINE」
   lineBasicId: "@839ibfpz",
   lineAddUrl: "https://lin.ee/OVjPoEX",
   igHandle: "kk413413",
-  deliverText: "收到儀式照片與影片",
 
-  // 祈福方向（價格依你圖卡的 NT$2,700 起；可再細分）
-  items: [
-    { id:"peace",   icon:"🪷", name:"平安祈福",         desc:"為自己祈求身心安定、出入平安。",
-      options:[{label:"報名一份",price:2700}] },
-    { id:"love",    icon:"🌸", name:"感情與人際關係",   desc:"人緣、桃花、伴侶關係的祈願。",
-      options:[{label:"報名一份",price:2700}] },
-    { id:"career",  icon:"📈", name:"事業順利",         desc:"工作推進、轉職、創業、貴人運。",
-      options:[{label:"報名一份",price:2700}] },
-    { id:"wealth",  icon:"💰", name:"財運與生活順遂",   desc:"財務穩定、生活諸事順利。",
-      options:[{label:"報名一份",price:2700}] },
-    { id:"family",  icon:"🏠", name:"家人平安",         desc:"為家人祈福，請在下方填家人資料。",
-      options:[{label:"報名一份",price:2700}] },
-    { id:"merit",   icon:"🕯️", name:"迴向祈願",         desc:"迴向冤親債主或已故親友。",
-      options:[{label:"報名一份",price:2700}] },
-  ],
-
-  // 本月祈福場次（每月更新一次）
+  // 本月祈福場次（每月更新）
   sessions: [
     "12/5（六）紫微星君聖誕｜事業發展・貴人相助・人緣提升・感情順遂",
     "12/9（三）溫府千歲聖誕｜消災解厄・化解口舌・人際和諧・感情平順",
@@ -298,183 +277,259 @@ const CONFIG = {
     "12/27（日）九蓮菩薩佛辰｜慈悲祈福・智慧增長・良緣善緣・家庭平安",
   ],
 
-  // 滿額禮：不需要就留空陣列 []
+  // 方案（價格暫定，請確認）
+  plans: [
+    { id:"t1", name:"基本", price:2700 },
+    { id:"t2", name:"進階", price:3600 },
+    { id:"t3", name:"加強", price:6800 },
+    { id:"t4", name:"豪華", price:9900 },
+    { id:"t5", name:"尊榮", price:12800 },
+  ],
+
+  // 祈福方向：tiers 依序對應上面三個方案的「適合誰」
+  items: [
+    { id:"peace", icon:"🪷", name:"平安健康", desc:"身心安定、出入平安、睡得安穩",
+      tiers:["日常求個安心，通勤、開車、出門在外",
+             "工作壓力大、睡不安穩，想讓身心穩下來",
+             "最近小狀況不斷、運勢低迷，想加強守護",
+             "為家中長輩或孩子一起祈求平安健康",
+             "全家整年度守護，健康、出入、家運一起顧"] },
+    { id:"love", icon:"🌸", name:"感情人際", desc:"人緣桃花、伴侶關係、人際和諧",
+      tiers:["想提升人緣，讓自己更好親近、更有吸引力",
+             "單身一段時間，想多些認識新對象的機會",
+             "有曖昧或心儀對象，希望關係往前一步",
+             "交往或婚姻中卡關、常爭吵，想修復與加溫",
+             "感情屢屢不順、剛走出低潮，做整年度感情守護"] },
+    { id:"career", icon:"📈", name:"事業貴人", desc:"工作推進、升遷轉職、遇見貴人",
+      tiers:["剛進職場或剛換工作，希望順利適應、少點阻礙",
+             "工作遇到瓶頸，希望表現被主管看見",
+             "準備面試、轉職或升遷考核，需要一股推力",
+             "帶團隊或自己創業，希望人和氣順、遇到好夥伴",
+             "事業轉折或擴張期，做整年度事業與貴人加持"] },
+    { id:"wealth", icon:"💰", name:"財運順遂", desc:"收入穩定、守得住錢、生活順利",
+      tiers:["剛開始存錢、收入以薪水為主，先把底子打穩",
+             "收入不差卻常月光，希望錢留得住、慢慢累積",
+             "業務、接案或獎金制，收入忽高忽低想拉穩",
+             "有副業或自己當老闆，想穩住營收與客源",
+             "企業主、投資布局者，做整年度財運規劃"] },
+    { id:"merit", icon:"🕯️", name:"迴向祈願", desc:"迴向冤親債主、已故親友",
+      tiers:["一般迴向，給自己一個放下與重新開始",
+             "最近諸事卡關、反覆不順，想好好清理",
+             "長期運勢低迷、心裡有放不下的事",
+             "為已故親友祈福迴向，完整一份心意",
+             "整年度迴向清理，為自己與家人一起做"] },
+  ],
+
+  // 優惠（擇一）：rate 折扣；ok(項目數, 人數) 使用條件
+  promos: [
+    { id:"none",   name:"不使用",         months:1, rate:1,    ok:()=>true },
+    { id:"combo",  name:"組合 95 折",     months:1, rate:0.95, ok:(n,p)=>n>=2, need:"需選 2 項以上" },
+    { id:"family", name:"家人同修 9 折",   months:1, rate:0.9,  ok:(n,p)=>p>=2, need:"需加入家人一起報名" },
+    { id:"season", name:"季補運 9 折",     months:3, rate:0.9,  ok:()=>true, note:"一次預繳 3 個月" },
+    { id:"half",   name:"半年補運 85 折", months:6, rate:0.85, ok:()=>true, note:"一次預繳 6 個月" },
+  ],
+
+  // 滿額贈品（以折扣後金額計算，擇高贈送）
   gifts: [
     { min:5400, name:"易經占卜一題" },
   ],
 
+  // 祈福期間提醒
+  tips: [
+    "祈福當天吃素一天（蛋奶素也可以）。",
+    "保持正能量：多想好的事、多做善事，相信好的改變會慢慢發生。",
+  ],
+
   faq: [
-    ["祈福日期怎麼選？", "每月依神明聖誕安排祈福場次，可以挑主題最貼近你心願的那一場；不確定的話，送出後 KK 幫你建議。"],
-    ["不在台灣也可以報名嗎？", "可以，祈福不需要本人到場，馬來西亞、新加坡的朋友也能報名，送出報名後 KK 會提供適合的匯款方式。"],
-    ["可以幫家人一起報名嗎？", "可以，在「其他祈福對象」填上家人資料，每多一位請再加一份。"],
-    ["要怎麼付款？", "送出報名後，KK 會在官方 LINE 確認並提供匯款資訊。匯款後請回傳戶名與帳號後 5 碼，方便對帳。"],
-    ["做完會收到什麼？", "儀式全程拍照、錄影，完成後透過 LINE 傳給你留存。"],
-    ["祈福一定會有效嗎？", "祈福屬於宗教文化服務，幫你安定心念、補足能量，不保證特定結果。實際的改變，還是來自你接下來的每個選擇。"],
+    ["祈福日期怎麼選？", "每月依神明聖誕安排場次，選主題最貼近你心願的那一場；不確定的話，在心願欄寫下狀況，KK 幫你建議。"],
+    ["方案差在哪裡？", "共五種方案，越高階的儀式準備的供品與材料越完整，適合狀況比較複雜、想做完整處理的人。每個方案都寫了「適合誰」，對照自己的狀況選就好；不確定可以先從基本開始。"],
+    ["可以幫家人一起報名嗎？", "可以，按「加入家人一起祈福」，每位家人可以選自己的方向與方案，還能用家人同修優惠。"],
+    ["不在台灣可以報名嗎？", "可以，祈福不需要本人到場。付款方式選「海外付款」，KK 會提供適合的付款方式；沒有 LINE 也可以用 Instagram 傳訂單。"],
+    ["要怎麼付款？", "產生訂單後用 LINE 傳給 KK，KK 確認後會在官方 LINE 回覆匯款資訊。匯款後請回傳戶名與帳號後 5 碼，方便對帳。"],
+    ["季補運、半年補運是什麼？", "一次預繳 3 個月或 6 個月，每個月固定為你祈福，享 9 折或 85 折。祈福像保養，持續做比一次做效果更穩。"],
+    ["祈福一定有效嗎？", "祈福是幫你安定心念、補足能量，不保證特定結果。真正的改變，還是來自你接下來的每個選擇。"],
   ],
 };
 
-/* ============================================================
-   以下是程式，一般不需要改
-   ============================================================ */
+/* ============================================================ */
 const $ = s => document.querySelector(s);
-const fmt = n => "$" + n.toLocaleString("en-US");
-const sel = {}; // itemId -> option index
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money = n => "NT$" + n.toLocaleString("en-US");
+const HOURS = ["不確定","子時 23:00–00:59","丑時 01:00–02:59","寅時 03:00–04:59","卯時 05:00–06:59","辰時 07:00–08:59","巳時 09:00–10:59","午時 11:00–12:59","未時 13:00–14:59","申時 15:00–16:59","酉時 17:00–18:59","戌時 19:00–20:59","亥時 21:00–22:59"];
+let pid = 0, lastOrder = "";
 
-function render(){
-  $("#deliverText").textContent = CONFIG.deliverText;
-  $("#igTag").textContent = "@" + CONFIG.igHandle;
-  $("#igLink").href = "https://www.instagram.com/" + CONFIG.igHandle + "/";
-  $("#lineLink").href = CONFIG.lineAddUrl;
+function itemsHTML(key){
+  return CONFIG.items.map(it=>`
+  <div class="item" data-it="${it.id}">
+    <div class="item-head"><div class="item-icon">${it.icon}</div><div class="item-title">${esc(it.name)}</div><div class="item-pick"></div></div>
+    <div class="item-desc">${esc(it.desc)}</div>
+    <div class="tiers">
+      <label class="tier none"><input type="radio" name="${key}-${it.id}" value="" checked><span class="tb"><span class="tn">不參加</span></span></label>
+      ${CONFIG.plans.map((pl,k)=>`
+      <label class="tier"><input type="radio" name="${key}-${it.id}" value="${pl.id}"><span class="tb">
+        <span class="tn">${esc(pl.name)}</span><span class="td">適合：${esc(it.tiers[k]||"")}</span><span class="tp">${money(pl.price)}</span>
+      </span></label>`).join("")}
+    </div>
+  </div>`).join("");
+}
 
-  $("#items").innerHTML = CONFIG.items.map(it => `
-    <div class="item" id="it-${it.id}">
-      <div class="item-head">
-        <div class="item-icon">${it.icon}</div>
-        <div class="item-title">${it.name}</div>
-        <button type="button" class="clear" data-clear="${it.id}">取消</button>
-      </div>
-      <div class="item-desc">${it.desc}</div>
-      <div class="opts">
-        ${it.options.map((o,i)=>`
-          <div class="opt">
-            <input type="radio" name="${it.id}" id="${it.id}-${i}" value="${i}">
-            <label for="${it.id}-${i}">${o.label}<em>${fmt(o.price)}</em></label>
-          </div>`).join("")}
-      </div>
-    </div>`).join("");
+function personHTML(i, main){
+  return `<div class="person${main?" main":" fam"}" data-p="${i}">
+    <div class="person-head"><h3>${main?"本人":"家人"}</h3>${main?"":'<button type="button" class="btn ghost sm rm">移除</button>'}</div>
+    <div class="grid2">
+      <label class="f">真實姓名 <span class="req">*</span><input type="text" class="name" autocomplete="${main?"name":"off"}"></label>
+      <label class="f">性別 <span class="req">*</span><select class="sex"><option value="">請選擇</option><option>女</option><option>男</option></select></label>
+      <label class="f">國曆生日 <span class="req">*</span><input type="date" class="bd"></label>
+      <label class="f">出生時辰 <span class="req">*</span><select class="hr"><option value="">請選擇</option>${HOURS.map(h=>`<option>${h}</option>`).join("")}</select></label>
+    </div>
+    <p class="small" style="margin:-4px 0 12px">只知道農曆生日的話，請先在 LINE 告訴 KK。</p>
+    ${main?`<label class="f">居住地址 <span class="req">*</span> <span class="opt">寫在祈福紙上，到區／路即可</span><input type="text" class="addr" autocomplete="street-address"></label>
+    <label class="f">公司名稱 <span class="opt">選填，祈求事業財運可填</span><input type="text" class="co"></label>`:""}
+    <label class="f">本次心願 <span class="req">*</span><span class="count">0/60</span>
+      <textarea class="wish" maxlength="60" placeholder="寫具體、實際的心願，並對應所選方向"></textarea></label>
+    ${main?"":`<h3 style="font-size:15px;margin:6px 0 10px">家人的祈福方向</h3>${itemsHTML("p"+i)}`}
+  </div>`;
+}
 
-  $("#session").innerHTML = CONFIG.sessions.map(x=>`<option>${x}</option>`).join("");
-  $("#faq").innerHTML = CONFIG.faq.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join("");
+function addPerson(main){
+  const d=document.createElement("div"); d.innerHTML=personHTML(pid++,main);
+  $("#people").append(d.firstElementChild); calc();
+}
+
+function readPeople(){
+  return [...document.querySelectorAll(".person")].map((p,idx)=>{
+    const g=c=>(p.querySelector(c)?.value||"").trim();
+    const main=!p.classList.contains("fam");
+    const box=main?$("#mainItems"):p;
+    const sel=CONFIG.items.map(it=>{
+      const v=box.querySelector(`[data-it="${it.id}"] input:checked`).value;
+      const pl=CONFIG.plans.find(x=>x.id===v); return pl?{it,pl}:null;
+    }).filter(Boolean);
+    return {el:p,main,idx,name:g(".name"),sex:g(".sex"),bd:g(".bd"),hr:g(".hr"),addr:g(".addr"),co:g(".co"),wish:g(".wish"),sel};
+  });
 }
 
 function calc(){
-  let total = 0; const lines = [];
-  CONFIG.items.forEach(it=>{
-    const box = $("#it-"+it.id);
-    if (sel[it.id] !== undefined){
-      const o = it.options[sel[it.id]];
-      total += o.price; lines.push({it,o});
-      box.classList.add("active");
-    } else box.classList.remove("active");
+  const ps=readPeople(); let sub=0,n=0; const rows=[];
+  ps.forEach((p,i)=>p.sel.forEach(s=>{sub+=s.pl.price;n++;
+    rows.push([`${p.name||(p.main?"本人":"家人"+i)}｜${s.it.name}（${s.pl.name}）`,s.pl.price]);}));
+  document.querySelectorAll(".item").forEach(el=>{
+    const inp=el.querySelector("input:checked"); const on=inp.value!=="";
+    el.classList.toggle("on",on);
+    const pl=CONFIG.plans.find(x=>x.id===inp.value);
+    el.querySelector(".item-pick").textContent=pl?`${pl.name} ${money(pl.price)}`:"";
   });
-  $("#total").textContent = fmt(total);
-  $("#count").textContent = lines.length ? `已選 ${lines.length} 項` : "尚未選擇項目";
+  let pr=CONFIG.promos.find(x=>x.id===(document.querySelector("[name=promo]:checked")||{}).value)||CONFIG.promos[0];
+  const okPr=pr.ok(n,ps.length);
+  $("#promoNote").textContent=!okPr?`「${pr.name}」${pr.need}，目前先不套用。`:pr.note?`${pr.name}：${pr.note}，從所選場次起連續 ${pr.months} 個月，金額以預繳總額計算。`:"優惠擇一，不能重複使用。";
+  if(!okPr) pr=CONFIG.promos[0];
+  const gross=sub*pr.months, total=Math.round(gross*pr.rate), off=gross-total;
+  const got=CONFIG.gifts.filter(g=>total>=g.min), best=got[got.length-1];
+  const next=CONFIG.gifts.find(g=>total<g.min);
 
-  // 滿額禮
-  const got = CONFIG.gifts.filter(g=>total>=g.min);
-  const next = CONFIG.gifts.find(g=>total<g.min);
-  const gift = $("#gift");
-  if (!CONFIG.gifts.length){ gift.innerHTML=""; $("#prog").parentElement.style.display="none"; }
-  else if (next){
-    gift.className = "gift";
-    gift.innerHTML = (got.length?`已得「${got.at(-1).name}」<br>`:"") + `再 <b>${fmt(next.min-total)}</b> 送${next.name}`;
-    const prev = got.length ? got.at(-1).min : 0;
-    $("#prog").style.width = Math.max(0,(total-prev)/(next.min-prev)*100)+"%";
-  } else {
-    gift.className = "gift got";
-    gift.innerHTML = `✓ 已達最高滿額禮<br>送「${got.map(g=>g.name).join("」＋「")}」`;
-    $("#prog").style.width = "100%";
-  }
-  updateSubmit();
-  return {total, lines, gifts:got};
+  $("#sum").innerHTML=(rows.length?rows.map(r=>`<li><span>${esc(r[0])}</span><span>${money(r[1])}</span></li>`).join(""):"<li><span>尚未選擇祈福方向</span><span></span></li>")
+    +(pr.months>1?`<li><span>每月小計 ${money(sub)} × ${pr.months} 個月</span><span>${money(gross)}</span></li>`:"")
+    +(off?`<li class="disc"><span>${esc(pr.name)}</span><span>−${money(off)}</span></li>`:"")
+    +`<li class="total"><span>合計</span><span>${money(total)}</span></li>`;
+  $("#giftNow").textContent=best?`🎁 已達贈品：${best.name}（一個月內於 LINE 預約使用）`:"";
+  $("#giftNext").innerHTML=next&&total>0?`再 <b>${money(next.min-total)}</b> 就送「${esc(next.name)}」`:"";
+
+  $("#barTotal").textContent=money(total);
+  $("#barSub").textContent=n?`${ps.length} 人・${n} 項${off?"・已折 "+money(off):""}`:"尚未選擇項目";
+  const bg=$("#barGift");
+  if(!CONFIG.gifts.length){bg.innerHTML="";}
+  else if(best && !next){bg.className="bar-gift got";bg.textContent=`✓ 已送「${best.name}」`;}
+  else if(next){bg.className="bar-gift";bg.innerHTML=(best?`已得「${esc(best.name)}」<br>`:"")+`再 <b>${money(next.min-total)}</b> 送${esc(next.name)}`;}
+  return {ps,sub,gross,off,total,best,pr,n};
 }
 
-function updateSubmit(){
-  const has = Object.keys(sel).length>0, agree = $("#agree").checked;
-  $("#submit").disabled = !(has && agree);
-  $("#submitNote").textContent = !has ? "請先選擇祈福方向" : !agree ? "請勾選上方確認事項" : "按下後會開啟 LINE，再按一次「傳送」即可";
+function orderText(r){
+  const pay=document.querySelector("[name=pay]:checked").value;
+  const L=["【KK命理 祈福儀式報名】",`祈福日期：${$("#session").value}`,""];
+  r.ps.forEach((p,i)=>{
+    L.push(`▸ ${p.main?"本人":"家人"+i}：${p.name}（${p.sex}）`,`  國曆生日：${p.bd}｜時辰：${p.hr}`);
+    if(p.main){L.push(`  地址：${p.addr}`); if(p.co) L.push(`  公司：${p.co}`);}
+    L.push(`  心願：${p.wish}`,`  方向：${p.sel.map(s=>`${s.it.name}（${s.pl.name} ${money(s.pl.price)}）`).join("、")}`,"");
+  });
+  L.push(`優惠：${r.pr.name}`); if(r.pr.months>1) L.push(`預繳：${r.pr.months} 個月（每月小計 ${money(r.sub)}）`); if(r.off) L.push(`折扣：−${money(r.off)}`);
+  L.push(`合計：${money(r.total)}`); if(r.best) L.push(`贈品：${r.best.name}`);
+  L.push(`付款方式：${pay}`,"");
+  L.push(`LINE：${$("#line").value.trim()||"—"}｜IG：${$("#ig").value.trim()||"—"}`,`認識管道：${$("#src").value||"—"}`,"","（送出後請等 KK 回覆匯款資訊）");
+  return L.join("\n");
 }
 
-function validate(){
-  const rules = {
-    name: v=>v.trim().length>0,
-    birthday: v=>!!v,
-    address: v=>v.trim().length>0,
-    nick: v=>v.trim().length>0,
-  };
-  let first = null;
-  for (const k in rules){
-    const ok = rules[k]($("#"+k).value);
-    document.querySelector(`[data-k="${k}"]`).classList.toggle("invalid",!ok);
-    if (!ok && !first) first = $("#"+k);
-  }
-  if (first){ first.scrollIntoView({behavior:"smooth",block:"center"}); first.focus({preventScroll:true}); }
-  return !first;
+function mark(el,bad){ const f=el.closest(".f"); if(f) f.classList.toggle("bad",bad); }
+
+function validate(r){
+  const errs=[]; let first=null;
+  const need=(el,ok)=>{ mark(el,!ok); if(!ok&&!first) first=el; return ok; };
+  r.ps.forEach((p,i)=>{
+    const who=p.main?"本人":"家人"+i; const q=c=>p.el.querySelector(c);
+    let ok=true;
+    ok=need(q(".name"),!!p.name)&ok; ok=need(q(".sex"),!!p.sex)&ok; ok=need(q(".bd"),!!p.bd)&ok;
+    ok=need(q(".hr"),!!p.hr)&ok; ok=need(q(".wish"),!!p.wish)&ok;
+    if(p.main) ok=need(q(".addr"),!!p.addr)&ok;
+    if(!ok) errs.push(who+"的必填資料");
+    if(!p.sel.length){ errs.push(who+"的祈福方向"); if(!first) first=(p.main?$("#mainItems"):p.el.querySelector(".item")); }
+  });
+  const hasC=!!($("#line").value.trim()||$("#ig").value.trim());
+  mark($("#line"),!hasC); mark($("#ig"),!hasC);
+  if(!hasC){ errs.push("LINE 或 IG 聯絡方式"); if(!first) first=$("#line"); }
+  if(!$("#agree").checked){ errs.push("勾選同意祈福說明"); if(!first) first=$("#agree"); }
+  return {errs,first};
 }
 
-function buildOrder(){
-  const {total, lines, gifts} = calc();
-  const v = id => $("#"+id).value.trim();
-  const out = [
-    "【祈福儀式報名】",
-    "",
-    "▍祈福項目",
-    ...lines.map(({it,o})=>`・${it.name}｜${o.label}｜${fmt(o.price)}`),
-    `祈福日期：${v("session")}`,
-    `合計：${fmt(total)}`,
-    gifts.length ? `滿額禮：${gifts.map(g=>g.name).join("、")}` : null,
-    "",
-    "▍祈福資料",
-    `姓名：${v("name")}`,
-    `國曆生日：${v("birthday")}`,
-    `時辰：${v("hour")||"不確定"}`,
-    `地址：${v("address")}`,
-    v("wish") ? `心願：${v("wish")}` : null,
-    v("others") ? `其他祈福對象：\n${v("others")}` : null,
-    "",
-    `LINE暱稱：${v("nick")}`,
-    "",
-    "（送出後請等 KK 回覆匯款資訊）",
-  ].filter(x=>x!==null);
-  return out.join("\n");
-}
-
-function toast(msg){
-  const t=$("#toast"); t.textContent=msg; t.classList.add("show");
-  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),2600);
-}
-
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),2600);}
 async function copyText(s){
-  try{ await navigator.clipboard.writeText(s); return true; }
-  catch(e){
-    const ta=document.createElement("textarea"); ta.value=s; document.body.appendChild(ta);
-    ta.select(); let ok=false; try{ok=document.execCommand("copy");}catch(_){}
-    ta.remove(); return ok;
-  }
+  try{await navigator.clipboard.writeText(s);return true;}
+  catch(e){const ta=document.createElement("textarea");ta.value=s;document.body.appendChild(ta);ta.select();
+    let ok=false;try{ok=document.execCommand("copy");}catch(_){} ta.remove();return ok;}
 }
 
-/* events */
-document.addEventListener("change", e=>{
-  const t=e.target;
-  if (t.type==="radio"){ sel[t.name]=+t.value; calc(); }
-  if (t.id==="agree") updateSubmit();
-});
-document.addEventListener("click", async e=>{
-  const c = e.target.closest("[data-clear]");
-  if (c){
-    const id=c.dataset.clear; delete sel[id];
-    document.querySelectorAll(`input[name="${id}"]`).forEach(r=>r.checked=false);
-    calc();
-  }
-  const cp = e.target.closest("[data-copy]");
-  if (cp){ e.preventDefault(); if (await copyText(cp.dataset.copy)) toast("已複製帳號"); }
-});
+/* init */
+$("#session").innerHTML=CONFIG.sessions.map(x=>`<option>${esc(x)}</option>`).join("");
+$("#fromPrice").textContent=money(Math.min(...CONFIG.plans.map(p=>p.price)));
+$("#mainItems").innerHTML=itemsHTML("m");
+$("#promo").innerHTML=CONFIG.promos.map((p,i)=>`<label class="chip"><input type="radio" name="promo" value="${p.id}"${i?"":" checked"}><span>${esc(p.name)}</span></label>`).join("");
+$("#giftList").innerHTML=CONFIG.gifts.length?CONFIG.gifts.map(g=>`<li>滿 ${money(g.min)}：${esc(g.name)}</li>`).join("")+"<li>贈品擇高贈送，請於一個月內在 LINE 預約使用。</li>":"<li>本月無滿額贈品</li>";
+$("#tips").innerHTML=CONFIG.tips.map(t=>`<li>${esc(t)}</li>`).join("");
+$("#faq").innerHTML=CONFIG.faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+const igUrl="https://www.instagram.com/"+CONFIG.igHandle+"/";
+$("#igLink").href=igUrl; $("#igDm").href="https://ig.me/m/"+CONFIG.igHandle; $("#lineLink").href=CONFIG.lineAddUrl;
+$("#lineIdTxt").textContent=CONFIG.lineBasicId;
+addPerson(true);
 
-$("#submit").addEventListener("click", async e=>{
+$("#addP").addEventListener("click",()=>addPerson(false));
+$("#people").addEventListener("click",e=>{ if(e.target.classList.contains("rm")){ e.target.closest(".person").remove(); calc(); }});
+$("#f").addEventListener("input",e=>{
+  if(e.target.classList.contains("wish")) e.target.closest("label").querySelector(".count").textContent=e.target.value.length+"/60";
+  if(e.target.closest(".f")) mark(e.target,false);
+  calc(); if(!$("#after").classList.contains("hidden")) $("#after").classList.add("hidden");
+});
+$("#f").addEventListener("change",()=>{ calc(); $("#after").classList.add("hidden"); });
+
+$("#f").addEventListener("submit",e=>{
   e.preventDefault();
-  if (!validate()){ toast("還有欄位沒填完喔"); return; }
-  const msg = buildOrder();
-  if (CONFIG.lineBasicId){
-    const id = encodeURIComponent(CONFIG.lineBasicId);
-    location.href = `https://line.me/R/oaMessage/${id}/?${encodeURIComponent(msg)}`;
-  } else {
-    await copyText(msg);
-    toast("訂單已複製，請到 LINE 貼上傳送");
-    setTimeout(()=>{ location.href = CONFIG.lineAddUrl; }, 1200);
+  const r=calc(), {errs,first}=validate(r), er=$("#err");
+  if(errs.length){
+    er.textContent="請完成："+errs.join("、"); er.classList.remove("hidden");
+    if(first){ first.scrollIntoView({behavior:"smooth",block:"center"}); if(first.focus) first.focus({preventScroll:true}); }
+    return;
   }
+  er.classList.add("hidden");
+  lastOrder=orderText(r);
+  $("#order").textContent=lastOrder;
+  $("#after").classList.remove("hidden");
+  $("#after").scrollIntoView({behavior:"smooth"});
 });
 
-render(); calc();
+$("#sendLine").addEventListener("click",async()=>{
+  await copyText(lastOrder);
+  location.href=`https://line.me/R/oaMessage/${encodeURIComponent(CONFIG.lineBasicId)}/?${encodeURIComponent(lastOrder)}`;
+});
+$("#copyOrder").addEventListener("click",async()=>{
+  toast(await copyText(lastOrder)?"已複製訂單，貼到 LINE 或 IG 傳送":"請長按訂單文字手動複製");
+});
 </script>
 </body>
 </html>
